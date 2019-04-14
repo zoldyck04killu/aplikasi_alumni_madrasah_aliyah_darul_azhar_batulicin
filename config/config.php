@@ -6,15 +6,17 @@ session_start();
 
 $host = 'localhost';
 $user = 'root';
-$pass = '123';
-$db   = 'aplikasi_alumni_mts_btl';
+$pass = '4';
+$db   = 'aplikasi_alumni_madrasah_darul_azhar_batulicin';
 
 // end databse settings
 
 
 function base_url($url = null)
 {
-    $base_url = "http://localhost/aplikasi_alumni_madrasah_aliyah_darul_azhar_batulicin/";
+
+  $base_url = "http://localhost/Aplikasi_alumni_madrasah_aliyah_Darul_azhar_batulicin/";
+    // $base_url = "http://localhost/aplikasi_alumni_madrasah_aliyah_darul_azhar_batulicin/";
     if ($url != null) {
         return $base_url."/".$url;
     }else{

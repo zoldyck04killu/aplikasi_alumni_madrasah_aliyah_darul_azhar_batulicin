@@ -16,7 +16,7 @@
         min-height: 38px;
         border-radius: 2px;
     }
-    .btn {        
+    .btn {
         font-size: 15px;
         font-weight: bold;
     }
@@ -24,7 +24,7 @@
 
 <div class="login-form">
     <form action="/examples/actions/confirmation.php" method="post">
-        <h2 class="text-center">Log in</h2>       
+        <h2 class="text-center">Log in</h2>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" required="required">
         </div>
@@ -33,9 +33,9 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-        </div>  
+        </div>
           <div class="form-group">
-            <a href="?view=home" class="btn btn-primary btn-block">Home</a>
-        </div>       
+            <a href="?view=home" class="btn btn-primary btn-block">Register</a>
+        </div>
     </form>
 </div>

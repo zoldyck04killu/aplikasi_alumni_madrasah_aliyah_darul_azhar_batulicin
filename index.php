@@ -34,6 +34,13 @@ $obj = new Connection($host, $user, $pass, $db);
   <!-- Custom styles for this template -->
   <link href="<?=base_url()?>assets/css/simple-sidebar.css" rel="stylesheet">
 
+  <!-- Bootstrap core JavaScript -->
+  <script src="<?=base_url()?>assets/jquery/jquery.min.js"></script>
+  <script src="<?=base_url()?>assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/DataTables/datatables.min.css"/>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/DataTables/datatables.min.js"></script>
+
 </head>
 
 <body>
@@ -45,7 +52,7 @@ $obj = new Connection($host, $user, $pass, $db);
       <div class="sidebar-heading">Logo Disini</div>
       <div class="list-group list-group-flush">
         <a href="?view=login" class="list-group-item list-group-item-action bg-light">Login</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Alumni</a>
+        <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Berita</a>
@@ -62,9 +69,9 @@ $obj = new Connection($host, $user, $pass, $db);
         <button class="btn btn-info" id="menu-toggle">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <ul class="navbar-nav ml-auto mt-2 mt-lg-1">
-                <h5 class="text-center"> Aplikasi Alumni Madrasah Aliyah Darul Azhar Batulicin </h5> 
+                <h5 class="text-center"> Aplikasi Alumni Madrasah Aliyah Darul Azhar Batulicin </h5>
         </ul>
 
       </nav>
@@ -72,16 +79,12 @@ $obj = new Connection($host, $user, $pass, $db);
       <div class="container-fluid">
 
        <?php include('pages/page.php'); ?>
-       
+
     </div>
     <!-- /#page-content-wrapper -->
 
   </div>
   <!-- /#wrapper -->
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="<?=base_url()?>assets/jquery/jquery.min.js"></script>
-  <script src="<?=base_url()?>assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>
@@ -89,6 +92,10 @@ $obj = new Connection($host, $user, $pass, $db);
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+
+      $(document).ready( function () {
+        $('#table').DataTable();
+      } );
   </script>
 
 </body>
