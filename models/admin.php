@@ -84,6 +84,29 @@ class Admin
     return $query;
   }
 
+  function savePerusahaan($id_perusahaan,$nis,$nama_perusahaan,$alamat_perusahaan  )
+  {
+    $db = $this->mysqli->conn;
+    $savePekerjaan = $db->query("INSERT INTO data_perusahaan
+                              (id_perusahaan,nis,nama_perusahaan,alamat_perusahaan )
+                              VALUES
+                              ('$id_perusahaan','$nis','$nama_perusahaan','$alamat_perusahaan' )
+                              ") or die ($db->error);
+    if ($savePekerjaan)
+    {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function showPerusahaan(){
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM data_perusahaan";
+    $query = $db->query($sql);
+    return $query;
+  }
+
 } // end class
 
 ?>

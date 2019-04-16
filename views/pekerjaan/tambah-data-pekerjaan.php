@@ -53,7 +53,7 @@ if (isset($_POST['savePekerjaan']))
   if ($savePekerjaan) {
       echo "<script>
       swal(
-        'Save Alumni Success!',
+        'Save Pekerjaan Success!',
         'You clicked the button!',
         'success'
       )
@@ -61,7 +61,7 @@ if (isset($_POST['savePekerjaan']))
   }else{
     echo "<script>
     swal({
-          title: 'Error Save Alumni!',
+          title: 'Error Save Pekerjaan!',
           text: 'Do you want to continue',
           type: 'error'
         })

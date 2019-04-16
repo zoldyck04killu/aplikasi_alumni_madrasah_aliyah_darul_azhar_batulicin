@@ -21,14 +21,25 @@
     </thead>
     <tbody>
     <?php
-    // $data = $objAdmin->showAnggota();
-    // $no = 1;
-    // while ($a = $data->fetch_object()) {
+    $data = $objAdmin->showPerusahaan();
+    $no = 1;
+    while ($a = $data->fetch_object()) {
     ?>
+    <tr>
+      <td><?= $no; ?></td>
+      <td><?= $a->id_perusahaan; ?></td>
+      <td><?= $a->nis; ?></td>
+      <td><?= $a->nama_perusahaan; ?></td>
+      <td><?= $a->alamat_perusahaan; ?></td>
+      <td>
+        <a href="?view=edit-perusahaan&nip=<?=$a->id_perusahaan; ?>" class="btn btn-sm btn-warning">Edit</a>
+        <a href="?view=hapus-perusahaan&nip=<?=$a->id_perusahaan; ?>" class="btn btn-sm btn-danger">Hapus</a>
 
+      </td>
+    </tr>
       <?php
-      // $no++;
-      // }
+      $no++;
+      }
       ?>
     </tbody>
     </table>
