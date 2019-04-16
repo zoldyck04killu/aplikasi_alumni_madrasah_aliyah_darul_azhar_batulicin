@@ -107,6 +107,29 @@ class Admin
     return $query;
   }
 
+  function saveBerita($id_berita,$tgl_berita,$id_kategori,$nama_kategori,$keterangan,$judul,$isi_berita,$hari,$gambar,$tempat_pelaksanaan )
+  {
+    $db = $this->mysqli->conn;
+    $saveBerita = $db->query("INSERT INTO data_berita
+                              (id_berita,tgl_berita,id_kategori,nama_kategori,keterangan,judul,isi_berita,hari,gambar,tempat_pelaksanaan )
+                              VALUES
+                              ('$id_berita','$tgl_berita','$id_kategori','$nama_kategori','$keterangan','$judul','$isi_berita','$hari','$gambar','$tempat_pelaksanaan' )
+                              ") or die ($db->error);
+    if ($saveBerita)
+    {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function showBerita(){
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM data_berita";
+    $query = $db->query($sql);
+    return $query;
+  }
+
 } // end class
 
 ?>
