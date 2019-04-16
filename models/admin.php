@@ -61,6 +61,29 @@ class Admin
     return $query;
   }
 
+  function savePekerjaan($id_pekerjaan,$nis,$nama_pekerjaan,$jabatan )
+  {
+    $db = $this->mysqli->conn;
+    $savePekerjaan = $db->query("INSERT INTO data_pekerjaan
+                              (id_pekerjaan,nis,nama_pekerjaan,jabatan )
+                              VALUES
+                              ('$id_pekerjaan','$nis','$nama_pekerjaan','$jabatan')
+                              ") or die ($db->error);
+    if ($savePekerjaan)
+    {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function showPekerjaan(){
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM data_pekerjaan";
+    $query = $db->query($sql);
+    return $query;
+  }
+
 } // end class
 
 ?>
