@@ -5,13 +5,16 @@ require_once 'config/config.php';
 require_once 'config/connection.php';
 // end require system
 
+//  new instance object
+$obj = new Connection($host, $user, $pass, $db);
+
 // require models
+include('models/admin.php');
+$objAdmin = new Admin($obj);
 
 
 // end require models
 
-//  new instance object
-$obj = new Connection($host, $user, $pass, $db);
 // end  new instance object
 
 ?>
