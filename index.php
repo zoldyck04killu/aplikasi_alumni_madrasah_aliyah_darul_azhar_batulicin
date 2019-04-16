@@ -53,9 +53,9 @@ $obj = new Connection($host, $user, $pass, $db);
       <div class="list-group list-group-flush">
         <a href="?view=login" class="list-group-item list-group-item-action bg-light">Login</a>
         <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Berita</a>
+        <a href="?view=pekerjaan" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
+        <a href="?view=perusahaan" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
+        <a href="?view=berita" class="list-group-item list-group-item-action bg-light">Berita</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Logout</a>
       </div>
     </div>

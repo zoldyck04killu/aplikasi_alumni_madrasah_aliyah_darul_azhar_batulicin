@@ -40,7 +40,7 @@
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Agama</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <span>Jurusan</span>
@@ -52,17 +52,17 @@
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Alamat Rumah</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Alamat Sekarang</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">No HP Alumni</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <!-- E-mail -->
@@ -73,32 +73,32 @@
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Angkatan Alumni</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Lulusan Alumni</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Nama Ayah</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Nama Ibu</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Alamat Orang Tua</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">No Hp Orang Tua</label>
-                <input type="date" id="materialContactFormName" class="form-control">
+                <input type="text" id="materialContactFormName" class="form-control">
             </div>
 
             <!-- Send button -->
