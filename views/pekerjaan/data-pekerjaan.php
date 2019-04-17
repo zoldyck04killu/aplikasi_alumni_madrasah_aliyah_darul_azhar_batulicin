@@ -32,8 +32,8 @@
       <td><?= $a->nama_pekerjaan; ?></td>
       <td><?= $a->jabatan; ?></td>
       <td>
-        <a href="?view=edit-pekerjaan&nip=<?=$a->id_pekerjaan; ?>" class="btn btn-sm btn-warning">Edit</a>
-        <a href="?view=hapus-pekerjaan&nip=<?=$a->id_pekerjaan; ?>" class="btn btn-sm btn-danger">Hapus</a>
+        <a href="?view=edit-pekerjaan&id_pekerjaan=<?=$a->id_pekerjaan; ?>" class="btn btn-sm btn-warning">Edit</a>
+        <a href="?view=hapus-pekerjaan&id_pekerjaan=<?=$a->id_pekerjaan; ?>" class="btn btn-sm btn-danger">Hapus</a>
 
       </td>
     </tr>

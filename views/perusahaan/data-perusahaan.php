@@ -2,7 +2,7 @@
 
 
 <div class="header-hal">
-    <center><h1>DATA PEKERJAAN</h1></center>
+    <center><h1>DATA PERUSAHAAN</h1></center>
     <hr>
 </div>
 <div class="daftar-table table-responsive">
@@ -32,8 +32,8 @@
       <td><?= $a->nama_perusahaan; ?></td>
       <td><?= $a->alamat_perusahaan; ?></td>
       <td>
-        <a href="?view=edit-perusahaan&nip=<?=$a->id_perusahaan; ?>" class="btn btn-sm btn-warning">Edit</a>
-        <a href="?view=hapus-perusahaan&nip=<?=$a->id_perusahaan; ?>" class="btn btn-sm btn-danger">Hapus</a>
+        <a href="?view=edit-perusahaan&id_perusahaan=<?=$a->id_perusahaan; ?>" class="btn btn-sm btn-warning">Edit</a>
+        <a href="?view=hapus-perusahaan&id_perusahaan=<?=$a->id_perusahaan; ?>" class="btn btn-sm btn-danger">Hapus</a>
 
       </td>
     </tr>

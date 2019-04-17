@@ -59,8 +59,10 @@
       <td><?= $a->no_hp_ortu; ?></td>
 
       <td>
-        <a href="?view=edit-alumni&nip=<?=$a->nis; ?>" class="btn btn-sm btn-warning">Edit</a>
-        <a href="?view=hapus-alumni&nip=<?=$a->nis; ?>" class="btn btn-sm btn-danger">Hapus</a>
+        <div class="btn btn-group" id="" style="">
+        <a href="?view=edit-alumni&nis=<?=$a->Nis; ?>" class="btn btn-sm btn-warning">Edit</a>
+        <a href="?view=hapus-alumni&nis=<?=$a->Nis; ?>" class="btn btn-sm btn-danger">Hapus</a>
+        </div>
 
       </td>
     </tr>
