@@ -86,9 +86,13 @@ elseif ($_GET['view'] == 'hapus-perusahaan')
 // end PERUSAHAAN
 
 // BERITA
-elseif (@$_GET['view'] == 'berita')
+elseif (@$_GET['view'] == 'data-berita')
 {
     include 'views/berita/data-berita.php';
+}
+elseif (@$_GET['view'] == 'berita')
+{
+    include 'views/berita/berita.php';
 }
 elseif (@$_GET['view'] == 'tambah-data-berita')
 {
