@@ -23,19 +23,33 @@
 </style>
 
 <div class="login-form">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="" method="post">
         <h2 class="text-center">Log in</h2>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
+            <input type="text" class="form-control" placeholder="Username" required="required" name="username">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
+            <input type="password" class="form-control" placeholder="Password" required="required" name="password">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-        </div>
-          <div class="form-group">
-            <a href="?view=home" class="btn btn-primary btn-block">Register</a>
+            <button type="submit" class="btn btn-primary btn-block" name="login">Masuk</button>
         </div>
     </form>
 </div>
+<?php
+
+if (isset($_POST['login'])) {
+  $username = $obj->conn->real_escape_string($_POST['username']);
+  $password = $obj->conn->real_escape_string($_POST['password']);
+  // login
+  $login = $objAdmin->login($username, $password);
+  if ($login) {
+      echo '<script>
+      window.location="?view=home";
+       </script>';
+  }else {
+    echo '<script> alert("error login"); </script>';
+  }
+}
+
+?>

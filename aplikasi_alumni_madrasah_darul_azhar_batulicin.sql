@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2019 at 06:01 AM
+-- Generation Time: Apr 18, 2019 at 01:37 AM
 -- Server version: 10.3.13-MariaDB
 -- PHP Version: 7.3.3
 
@@ -48,6 +48,13 @@ CREATE TABLE `data_alumni` (
   `no_hp_ortu` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `data_alumni`
+--
+
+INSERT INTO `data_alumni` (`Nis`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `jurusan`, `alamat_rumah`, `alamat_sekarang`, `no_hp_alumni`, `email`, `angkatan_alumni`, `lulusan_alumni`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `no_hp_ortu`) VALUES
+('123123', 'did', 'Banjarmasin', '2019-04-02', 'Laki-Laki', 'Islam', 'IPA', 'jln banjarmasin selatan', 'jln banjarmasin selatan', '086543434', 'did@gmail.com', 2013, 2017, 'sukarni', 'sri', 'jln gambut', 852374614);
+
 -- --------------------------------------------------------
 
 --
@@ -67,6 +74,13 @@ CREATE TABLE `data_berita` (
   `tempat_pelaksanaan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `data_berita`
+--
+
+INSERT INTO `data_berita` (`id_berita`, `tgl_berita`, `id_kategori`, `nama_kategori`, `keterangan`, `judul`, `isi_berita`, `gambar`, `hari`, `tempat_pelaksanaan`) VALUES
+('B123', '2019-04-15', '123', 'sport', 'sport', 'Sport extreme', 'sport extreme saat ini telah banyak diminati oleh para anak remaja', '', 'senin', 'stadion');
+
 -- --------------------------------------------------------
 
 --
@@ -79,6 +93,13 @@ CREATE TABLE `data_pekerjaan` (
   `nama_pekerjaan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jabatan` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `data_pekerjaan`
+--
+
+INSERT INTO `data_pekerjaan` (`id_pekerjaan`, `nis`, `nama_pekerjaan`, `jabatan`) VALUES
+('P123', '8734231', 'PT Adaro', 'Adminintrator');
 
 -- --------------------------------------------------------
 
@@ -93,6 +114,13 @@ CREATE TABLE `data_perusahaan` (
   `alamat_perusahaan` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `data_perusahaan`
+--
+
+INSERT INTO `data_perusahaan` (`id_perusahaan`, `nis`, `nama_perusahaan`, `alamat_perusahaan`) VALUES
+('PH123', '5341212', 'Pt Adaro', 'jl ahmad yani');
+
 -- --------------------------------------------------------
 
 --
@@ -102,8 +130,16 @@ CREATE TABLE `data_perusahaan` (
 CREATE TABLE `login_alumni` (
   `id` int(50) NOT NULL,
   `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hak_akses` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `login_alumni`
+--
+
+INSERT INTO `login_alumni` (`id`, `username`, `password`, `hak_akses`) VALUES
+(1, 'alumni', '$2y$10$QxKb4/AO6BvNVCFEYgL1keSx3WSmUf2N0O/.iajNlngbtC9uze2BC', 1);
 
 --
 -- Indexes for dumped tables
@@ -147,7 +183,7 @@ ALTER TABLE `login_alumni`
 -- AUTO_INCREMENT for table `login_alumni`
 --
 ALTER TABLE `login_alumni`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

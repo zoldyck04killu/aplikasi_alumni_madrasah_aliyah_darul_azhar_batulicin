@@ -13,19 +13,14 @@ class Admin
     $this->mysqli = $mysqli;
   }
 
-  function register($username, $password_hash)
-  {
-    $db = $this->mysqli->conn;
-    $db->query("INSERT INTO admin (admin, passadmin) VALUES ('$username','$password_hash')") or die ($db->error);
-  }
-
   public function login($username, $password){
   $db = $this->mysqli->conn;
-  $userdata = $db->query("SELECT * FROM admin WHERE admin = '$username' ") or die ($db->error);
+  $userdata = $db->query("SELECT * FROM login_alumni WHERE username = '$username' ") or die ($db->error);
   $cek = $userdata->num_rows;
   $cek_2 = $userdata->fetch_array();
-          if (password_verify($password, $cek_2['passadmin'])) {
-              $_SESSION['user'] = $cek_2['admin']; //session KTP
+          if (password_verify($password, $cek_2['password'])) {
+              $_SESSION['user'] = $cek_2['username']; //session
+              $_SESSION['hak_akses'] = $cek_2['hak_akses']; //session
               return true;
           } else {
               return false; // password salah
@@ -34,10 +29,21 @@ class Admin
 
   public function logout(){
     @$_SESSION['user'] == FALSE;
+    @$_SESSION['hak_akses'] == FALSE;    
     unset($_SESSION);
     session_destroy();
   }
 
+  function register($username, $password_hash, $hak_akses)
+  {
+    $db = $this->mysqli->conn;
+    $register = $db->query("INSERT INTO login_alumni (username, password,hak_akses) VALUES ('$username', '$password_hash', '$hak_akses')") or die ($db->error);
+    if ($register) {
+        return true;
+    } else {
+        return false; // password salah
+    }
+  }
 
 // ALUMNI
   function saveAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu )

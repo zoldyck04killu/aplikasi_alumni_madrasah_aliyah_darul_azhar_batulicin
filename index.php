@@ -52,14 +52,19 @@ $objAdmin = new Admin($obj);
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Logo Disini</div>
+      <a href="?view=home"> <div class="sidebar-heading">Menu</div> </a>
       <div class="list-group list-group-flush">
-        <a href="?view=login" class="list-group-item list-group-item-action bg-light">Login</a>
-        <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
-        <a href="?view=pekerjaan" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
-        <a href="?view=perusahaan" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
-        <a href="?view=berita" class="list-group-item list-group-item-action bg-light">Berita</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Logout</a>
+        <?php if (@$_SESSION['hak_akses']): ?>
+          <a href="?view=logout" class="list-group-item list-group-item-action bg-light">Logout</a>
+          <a href="?view=register" class="list-group-item list-group-item-action bg-light">Daftar Akun Alumni</a>
+          <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
+          <a href="?view=pekerjaan" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
+          <a href="?view=perusahaan" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
+          <a href="?view=berita" class="list-group-item list-group-item-action bg-light">Data Berita</a>
+          <?php else: ?>
+            <a href="?view=login" class="list-group-item list-group-item-action bg-light">Login</a>
+            <a href="?view=berita" class="list-group-item list-group-item-action bg-light">Berita</a>
+        <?php endif; ?>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
