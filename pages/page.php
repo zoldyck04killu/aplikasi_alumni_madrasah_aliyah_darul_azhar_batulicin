@@ -90,6 +90,10 @@ elseif (@$_GET['view'] == 'data-berita')
 {
     include 'views/berita/data-berita.php';
 }
+elseif (@$_GET['view'] == 'data-berita-user')
+{
+    include 'views/berita/data-berita-user.php';
+}
 elseif (@$_GET['view'] == 'berita')
 {
     include 'views/berita/berita.php';

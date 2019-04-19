@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2019 at 01:37 AM
+-- Generation Time: Apr 19, 2019 at 07:07 AM
 -- Server version: 10.3.13-MariaDB
 -- PHP Version: 7.3.3
 
@@ -124,6 +124,18 @@ INSERT INTO `data_perusahaan` (`id_perusahaan`, `nis`, `nama_perusahaan`, `alama
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id_komentar` int(100) NOT NULL,
+  `id_berita` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `komentar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login_alumni`
 --
 
@@ -170,6 +182,12 @@ ALTER TABLE `data_perusahaan`
   ADD PRIMARY KEY (`id_perusahaan`);
 
 --
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id_komentar`);
+
+--
 -- Indexes for table `login_alumni`
 --
 ALTER TABLE `login_alumni`
@@ -178,6 +196,12 @@ ALTER TABLE `login_alumni`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id_komentar` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `login_alumni`

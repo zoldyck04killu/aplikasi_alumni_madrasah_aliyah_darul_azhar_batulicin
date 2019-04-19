@@ -29,7 +29,7 @@ class Admin
 
   public function logout(){
     @$_SESSION['user'] == FALSE;
-    @$_SESSION['hak_akses'] == FALSE;    
+    @$_SESSION['hak_akses'] == FALSE;
     unset($_SESSION);
     session_destroy();
   }
@@ -224,8 +224,30 @@ class Admin
     return $query;
   }
 
-
+  public function showBerita_perId($id){
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM data_berita WHERE id_berita = '$id'";
+    $query = $db->query($sql);
+    return $query;
+  }
 // END BERITA
+
+function saveKomentar($id_berita,$nama_alumni,$komentar )
+{
+  $db = $this->mysqli->conn;
+  $saveKomentar = $db->query("INSERT INTO komentar
+                            (nama_alumni,id_berita,komentar )
+                            VALUES
+                            ('$nama_alumni','$id_berita','$komentar')
+                            ") or die ($db->error);
+  if ($saveKomentar)
+  {
+    return true;
+  }else{
+    return false;
+  }
+}
+
 
 } // end class
 

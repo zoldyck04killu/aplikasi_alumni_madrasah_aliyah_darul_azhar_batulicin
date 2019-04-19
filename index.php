@@ -63,7 +63,7 @@ $objAdmin = new Admin($obj);
           <a href="?view=data-berita" class="list-group-item list-group-item-action bg-light">Data Berita</a>
           <?php else: ?>
             <a href="?view=login" class="list-group-item list-group-item-action bg-light">Login</a>
-            <a href="?view=berita" class="list-group-item list-group-item-action bg-light">Berita</a>
+            <a href="?view=data-berita-user" class="list-group-item list-group-item-action bg-light">Berita</a>
         <?php endif; ?>
       </div>
     </div>

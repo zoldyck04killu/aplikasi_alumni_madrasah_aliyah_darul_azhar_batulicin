@@ -44,7 +44,7 @@
       <td>
         <a href="?view=edit-Berita&nip=<?=$a->id_berita; ?>" class="btn btn-sm btn-warning">Edit</a>
         <a href="?view=hapus-Berita&nip=<?=$a->id_berita; ?>" class="btn btn-sm btn-danger">Hapus</a>
-
+        <a href="?view=berita&nip=<?=$a->id_berita; ?>" class="btn btn-sm btn-danger">View Berita</a>
       </td>
     </tr>
       <?php
