@@ -11,22 +11,23 @@
       <tr>
         <th>No</th>
         <th>NIS</th>
-        <th>Nama Lengkap</th>
-        <th>Tempat Lahir</th>
-        <th>Tanggal Lahir</th>
-        <th>Jenis Kelamin</th>
+        <th>Nama <br> Lengkap</th>
+        <th>Tempat <br> Lahir</th>
+        <th>Tanggal <br> Lahir</th>
+        <th>Jenis <br> Kelamin</th>
         <th>Agama</th>
         <th>Jurusan</th>
-        <th>Alamat Rumah</th>
-        <th>Alamat Sekarang</th>
+        <th>Alamat <br> Rumah</th>
+        <th>Alamat <br> Sekarang</th>
         <th>No Hp</th>
         <th>Email</th>
         <th>Angkatan</th>
         <th>Lulusan</th>
-        <th>Nama Ayah</th>
-        <th>Nama Ibu</th>
-        <th>Alamat Ortu</th>
-        <th>No Hp Ortu</th>
+        <th>Nama <br> Ayah</th>
+        <th>Nama <br> Ibu</th>
+        <th>Alamat <br> Ortu</th>
+        <th>Hp Ortu</th>
+        <th>Foto</th>
 
 
         <th>Opsi</th>
@@ -57,6 +58,9 @@
       <td><?= $a->nama_ibu; ?></td>
       <td><?= $a->alamat_ortu; ?></td>
       <td><?= $a->no_hp_ortu; ?></td>
+      <td>
+        <img src="./assets/images/<?=$a->foto ?>"  width="70px">
+      </td>
 
       <td>
         <div class="btn btn-group" id="" style="">

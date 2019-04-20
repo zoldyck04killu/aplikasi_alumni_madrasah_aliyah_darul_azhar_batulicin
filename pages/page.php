@@ -40,6 +40,8 @@ elseif (@$_GET['view'] == 'edit-alumni')
 elseif (@$_GET['view'] == 'hapus-alumni')
 {
     $nis = $_GET['nis'];
+    $data =$objAdmin->editAlumni($nis)->fetch_object(); // untuk membaca file foto
+    @unlink("./assets/images/".$data->foto); // untuk menghapus file
     $objAdmin->hapusAlumni($nis);
 }
 // end ALUMNI

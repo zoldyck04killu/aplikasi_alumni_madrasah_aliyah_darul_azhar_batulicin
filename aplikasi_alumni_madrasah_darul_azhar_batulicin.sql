@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2019 at 07:07 AM
--- Server version: 10.3.13-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Apr 20, 2019 at 09:09 AM
+-- Server version: 10.3.14-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `aplikasi_alumni_madrasah_darul_azhar_batulicin`
+-- Database: `aplikasi_alumni_mts_btl`
 --
 
 -- --------------------------------------------------------
@@ -45,15 +45,17 @@ CREATE TABLE `data_alumni` (
   `nama_ayah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_ibu` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat_ortu` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_hp_ortu` int(15) NOT NULL
+  `no_hp_ortu` int(15) NOT NULL,
+  `foto` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `data_alumni`
 --
 
-INSERT INTO `data_alumni` (`Nis`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `jurusan`, `alamat_rumah`, `alamat_sekarang`, `no_hp_alumni`, `email`, `angkatan_alumni`, `lulusan_alumni`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `no_hp_ortu`) VALUES
-('123123', 'did', 'Banjarmasin', '2019-04-02', 'Laki-Laki', 'Islam', 'IPA', 'jln banjarmasin selatan', 'jln banjarmasin selatan', '086543434', 'did@gmail.com', 2013, 2017, 'sukarni', 'sri', 'jln gambut', 852374614);
+INSERT INTO `data_alumni` (`Nis`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `jurusan`, `alamat_rumah`, `alamat_sekarang`, `no_hp_alumni`, `email`, `angkatan_alumni`, `lulusan_alumni`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `no_hp_ortu`, `foto`) VALUES
+('123', 'Aldi', 'Banjarmasin', '2019-04-20', 'Laki-Laki', 'ISLAM', 'IPA', 'Mahligai', 'Mahligai', '08', 'aldi@aldi.com', 123, 123, 'ok', 'ok', 'ok', 9, 'Img-155575124076.jpg'),
+('444', 'sarif', 'tanjun', '2019-04-20', 'Laki-Laki', 'ISLAM', 'IPA', 'ok', 'ok', 'ok', 'sarif@sarif.com', 123, 123, 'ok', 'ok', 'ok', 8, 'Img-155575130163.jpg');
 
 -- --------------------------------------------------------
 

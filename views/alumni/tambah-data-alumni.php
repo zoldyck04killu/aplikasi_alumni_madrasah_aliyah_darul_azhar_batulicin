@@ -9,7 +9,12 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form method="post" action="" class="text-center" style="color: #757575;">
+        <form method="post" action="" class="text-center" style="color: #757575;" enctype="multipart/form-data">
+
+            <div class="md-form mt-3">
+                <label for="materialContactFormName">Foto Alumni</label>
+                <input type="file" id="materialContactFormName" class="form-control" name="foto">
+            </div>
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">NIS</label>
@@ -132,8 +137,14 @@ if (isset($_POST['saveAlumni']))
   $alamat_ortu = $obj->conn->real_escape_string($_POST['alamat_ortu']);
   $hp_ortu = $obj->conn->real_escape_string($_POST['hp_ortu']);
 
+  $name_array = $_FILES['foto']['name'];
+  $tmp_name   = $_FILES['foto']['tmp_name'];
+  $format     = "Img-".round(microtime(true)) . "";
+  $ext        = pathinfo($name_array, PATHINFO_EXTENSION);
+  move_uploaded_file($tmp_name, "./assets/images/".$foto = $format. rand(10, 100).".".$ext);
 
-  $saveAlumni = $objAdmin->saveAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu );
+
+  $saveAlumni = $objAdmin->saveAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto );
   if ($saveAlumni) {
       echo "<script>
       swal(
