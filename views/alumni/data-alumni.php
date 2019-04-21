@@ -66,6 +66,9 @@
         <div class="btn btn-group" id="" style="">
         <a href="?view=edit-alumni&nis=<?=$a->Nis; ?>" class="btn btn-sm btn-warning">Edit</a>
         <a href="?view=hapus-alumni&nis=<?=$a->Nis; ?>" class="btn btn-sm btn-danger">Hapus</a>
+        <a href="views/alumni/laporan-alumni.php?nis=<?=$a->Nis; ?>">
+          <button type="button" class="btn btn-primary">Laporan</button>
+        </a>
         </div>
 
       </td>

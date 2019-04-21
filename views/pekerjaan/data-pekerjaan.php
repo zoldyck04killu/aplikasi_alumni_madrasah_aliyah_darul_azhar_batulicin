@@ -49,3 +49,6 @@
 <a href="?view=tambah-data-pekerjaan">
   <button type="button" class="btn btn-primary">Tambah</button>
 </a>
+<a href="views/pekerjaan/laporan-pekerjaan.php">
+  <button type="button" class="btn btn-primary">Laporan</button>
+</a>

@@ -59,3 +59,6 @@
 <a href="?view=tambah-data-berita">
   <button type="button" class="btn btn-primary">Tambah</button>
 </a>
+<a href="views/berita/laporan-berita.php">
+  <button type="button" class="btn btn-primary">Laporan</button>
+</a>
