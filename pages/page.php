@@ -104,4 +104,14 @@ elseif (@$_GET['view'] == 'tambah-data-berita')
 {
     include 'views/berita/tambah-data-berita.php';
 }
+elseif (@$_GET['view'] == 'edit-Berita') 
+{
+    include 'views/berita/edit-berita.php';
+}
+else if (@$_GET['view'] == 'hapus-Berita') {
+    $id = @$_GET['nip'];
+    $data = $objAdmin->editBerita($id)->fetch_object(); // untuk membaca file foto
+    @unlink("./assets/images/".$data->gambar); // untuk menghapus file
+    $objAdmin->hapusBerita($id);
+}
 // end BERITA
