@@ -248,6 +248,53 @@ function saveKomentar($id_berita,$nama_alumni,$komentar )
   }
 }
 
+public function showKometar($id_berita){
+  $db = $this->mysqli->conn;
+  $sql = "SELECT * FROM komentar where id_berita = '$id_berita'";
+  $query = $db->query($sql);
+  return $query;
+}
+
+
+public function editBerita($id)
+{
+  $db = $this->mysqli->conn;
+  $sql = " SELECT * FROM data_berita WHERE id_berita = '$id' ";
+  $query = $db->query($sql);
+  return $query;
+}
+
+public function updateBerita($id_berita,$tgl_berita,$id_kategori,$nama_kategori,$keterangan,$judul,$isi_berita,$hari,$gambar,$tempat_pelaksanaan )
+{
+  $db = $this->mysqli->conn;
+  $sql = " UPDATE data_berita SET tgl_berita = '$tgl_berita', id_kategori = '$id_kategori', nama_kategori = '$nama_kategori', keterangan = '$keterangan', judul = '$judul', isi_berita = '$isi_berita', gambar = '$gambar', hari = '$hari', tempat_pelaksanaan = '$tempat_pelaksanaan' WHERE id_berita = '$id_berita' ";
+  $query = $db->query($sql);
+  if ($query) {
+      return true;
+  }else{
+      return false;
+  }
+}
+
+public function updateBeritaNoIMG($id_berita,$tgl_berita,$id_kategori,$nama_kategori,$keterangan,$judul,$isi_berita,$hari,$tempat_pelaksanaan )
+{
+  $db = $this->mysqli->conn;
+  $sql = " UPDATE data_berita SET tgl_berita = '$tgl_berita', id_kategori = '$id_kategori', nama_kategori = '$nama_kategori', keterangan = '$keterangan', judul = '$judul', isi_berita = '$isi_berita', hari = '$hari', tempat_pelaksanaan = '$tempat_pelaksanaan' WHERE id_berita = '$id_berita' ";
+  $query = $db->query($sql);
+  if ($query) {
+      return true;
+  }else{
+      return false;
+  }
+}
+
+public function hapusBerita($id)
+{
+  $db = $this->mysqli->conn;
+  $sql = " DELETE FROM data_berita WHERE id_berita = '$id' ";
+  $query = $db->query($sql);
+  return true;
+}
 
 } // end class
 

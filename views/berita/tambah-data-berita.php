@@ -9,7 +9,7 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form method="post" action="" class="text-center" style="color: #2db1be;">
+        <form method="post" action="" class="text-center" enctype="multipart/form-data" style="color: #2db1be;">
 
           <div class="md-form mt-3">
               <label for="materialContactFormName">Id Berita</label>
@@ -48,7 +48,7 @@
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Gambar</label>
-                <input type="text" id="materialContactFormName" class="form-control" name="gambar" >
+                <input type="file" id="materialContactFormName" class="form-control" name="gambar" >
             </div>
 
             <div class="md-form mt-3">
@@ -80,9 +80,15 @@ if (isset($_POST['saveBerita']))
   $keterangan = $obj->conn->real_escape_string($_POST['keterangan']);
   $judul = $obj->conn->real_escape_string($_POST['judul']);
   $isi_berita = $obj->conn->real_escape_string($_POST['isi_berita']);
-  $gambar = $obj->conn->real_escape_string($_POST['gambar']);
   $hari = $obj->conn->real_escape_string($_POST['hari']);
   $tempat_pelaksanaan = $obj->conn->real_escape_string($_POST['tempat_pelaksanaan']);
+
+  $name_array = $_FILES['gambar']['name'];
+  $tmp_name   = $_FILES['gambar']['tmp_name'];
+  $format     = "Img-".round(microtime(true)) . "";
+  $ext        = pathinfo($name_array, PATHINFO_EXTENSION);
+  move_uploaded_file($tmp_name, "./assets/images/".$gambar = $format. rand(10, 100).".".$ext);
+
 
 
   $saveBerita = $objAdmin->saveBerita($id_berita,$tgl_berita,$id_kategori,$nama_kategori,$keterangan,$judul,$isi_berita,$hari,$gambar,$tempat_pelaksanaan );

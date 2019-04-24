@@ -8,9 +8,9 @@ $a = $data->fetch_object();
 </div>
 <div class="row no-gutters">
 
-  <div class="col-12 col-sm-6 col-md-10">
+  <div class="col-12 col-md-12">
 
-    <div class="row">
+    <div class="row" >
       <div class="col">
         ID BERITA  <br>
         <?= $a->id_berita ?>
@@ -38,19 +38,39 @@ $a = $data->fetch_object();
         Tempat :   <?= $a->tempat_pelaksanaan ?>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top:20px; margin-bottom:20px;">
       <div class="col">
-        Gambar Berita :   <?= $a->gambar ?>
+        Gambar Berita :    <?php if ($a->gambar) { ?>
+            <img src="./assets/images/<?=$a->gambar ?>" width="500" height="300">
+          <?php }else{ ?>
+            No Image
+          <?php } ?>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        Isi Berita
+        Isi Berita :
         <p>
           <?= $a->isi_berita ?>
         </p>
       </div>
     </div>
+
+    <div class="container">
+  		<h1>Komentar</h1>
+  		<ul class="list-group">
+        <?php
+        $id_berita = $a->id_berita;
+        $data = $objAdmin->showKometar($id_berita);
+        $no = 1;
+        while ($komentar = $data->fetch_object()) {
+        ?>
+  			<li class="list-group-item" style="margin-bottom:10px;"> <div class="text-success"> <?= $komentar->nama_alumni ?> : </div> <?= $komentar->komentar ?></li>
+        <?php
+        }
+        ?>
+  		</ul>
+  	</div>
 
     <form method="post" action="" style="color: #2db1be;">
     <input type="hidden" id="materialContactFormName" class="form-control" name="id_berita" value="<?= $a->id_berita ?>">
@@ -78,24 +98,6 @@ $a = $data->fetch_object();
 
 </form>
 
-  </div>
-
-  <div class="col-6 col-md-2">
-    <div class="row">
-      <div class="col">
-        Gambar Berita
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Gambar Berita
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        Gambar Berita
-      </div>
-    </div>
   </div>
 
 </div>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 20, 2019 at 09:09 AM
--- Server version: 10.3.14-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Apr 24, 2019 at 11:48 AM
+-- Server version: 10.3.13-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `aplikasi_alumni_mts_btl`
+-- Database: `aplikasi_alumni_madrasah_darul_azhar_batulicin`
 --
 
 -- --------------------------------------------------------
@@ -55,6 +55,7 @@ CREATE TABLE `data_alumni` (
 
 INSERT INTO `data_alumni` (`Nis`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `jurusan`, `alamat_rumah`, `alamat_sekarang`, `no_hp_alumni`, `email`, `angkatan_alumni`, `lulusan_alumni`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `no_hp_ortu`, `foto`) VALUES
 ('123', 'Aldi', 'Banjarmasin', '2019-04-20', 'Laki-Laki', 'ISLAM', 'IPA', 'Mahligai', 'Mahligai', '08', 'aldi@aldi.com', 123, 123, 'ok', 'ok', 'ok', 9, 'Img-155575124076.jpg'),
+('12334541', 'Karma Agane', 'Jepang', '2019-04-24', 'Laki-Laki', 'Islam', 'IPA', 'jln banjarmasin selatan', 'jln banjarmasin selatan', '0877236253', 'karma@gmai.com', 2014, 2018, 'Korusaki', 'Nani', 'jln gambut', 877352313, 'Img-155610410773.jpg'),
 ('444', 'sarif', 'tanjun', '2019-04-20', 'Laki-Laki', 'ISLAM', 'IPA', 'ok', 'ok', 'ok', 'sarif@sarif.com', 123, 123, 'ok', 'ok', 'ok', 8, 'Img-155575130163.jpg');
 
 -- --------------------------------------------------------
@@ -81,7 +82,8 @@ CREATE TABLE `data_berita` (
 --
 
 INSERT INTO `data_berita` (`id_berita`, `tgl_berita`, `id_kategori`, `nama_kategori`, `keterangan`, `judul`, `isi_berita`, `gambar`, `hari`, `tempat_pelaksanaan`) VALUES
-('B123', '2019-04-15', '123', 'sport', 'sport', 'Sport extreme', 'sport extreme saat ini telah banyak diminati oleh para anak remaja', '', 'senin', 'stadion');
+('B111', '2019-04-24', 'K333', 'Politik', 'politik', 'politik pemilu', 'kecurangan pemilu dimana mana terjadi', 'Img-155610367670.jpg', 'rabu', 'banjarmasin'),
+('B123', '2019-04-15', '123', 'sport', 'sport', 'Sport extreme', 'sport extreme saat ini telah banyak diminati oleh para anak remaja', 'Img-155575130161.jpg', 'senin', 'stadion');
 
 -- --------------------------------------------------------
 
@@ -131,9 +133,18 @@ INSERT INTO `data_perusahaan` (`id_perusahaan`, `nis`, `nama_perusahaan`, `alama
 
 CREATE TABLE `komentar` (
   `id_komentar` int(100) NOT NULL,
+  `nama_alumni` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_berita` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `komentar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`id_komentar`, `nama_alumni`, `id_berita`, `komentar`) VALUES
+(1, 'dido', 'B123', 'hoax'),
+(2, 'kimi', 'B123', 'curang');
 
 -- --------------------------------------------------------
 
@@ -203,7 +214,7 @@ ALTER TABLE `login_alumni`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_komentar` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `login_alumni`
