@@ -22,37 +22,46 @@
     }
 </style>
 
+<?php
+
+$nis  = @$_GET['nis'];
+$data =$objAdmin->editAkun($nis)->fetch_object();
+
+
+ ?>
+
 <div class="login-form">
     <form action="" method="post">
-        <h2 class="text-center">Register</h2>
+        <h2 class="text-center">Edit Akun</h2>
+				<input type="hidden" name="id" value="<?= $data->id ?>">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required" name="username">
+            <input type="text" class="form-control" placeholder="Username" required="required" name="username" value="<?= $data->username ?>">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+            <input type="password" class="form-control" placeholder="Password Baru" required="required" name="password">
         </div>
 				<div class="form-group">
-            <input type="text" class="form-control" placeholder="Nis" required="required" name="nis">
-        </div>
+						<input type="text" class="form-control" placeholder="Nis" required="required" name="nis" value="<?= $data->nis ?>">
+				</div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block" name="register">Register</button>
+            <button type="submit" class="btn btn-primary btn-block" name="editAkun">Edit Akun</button>
         </div>
     </form>
 </div>
 <?php
 
-if (isset($_POST['register'])) {
+if (isset($_POST['editAkun'])) {
+	$id = $obj->conn->real_escape_string($_POST['id']);
 	$nis = $obj->conn->real_escape_string($_POST['nis']);
   $username = $obj->conn->real_escape_string($_POST['username']);
   $password = $obj->conn->real_escape_string($_POST['password']);
   $password_hash = password_hash($password, PASSWORD_DEFAULT);
-  $hak_akses = 1;
 
   // login
-  $register = $objAdmin->register($username, $password_hash, $hak_akses,$nis);
-  if ($register) {
+  $editAkun = $objAdmin->proses_editAkun($username, $password_hash,$nis,$id);
+  if ($editAkun) {
       echo '<script>
-      window.location="?view=login";
+      window.location="?view=alumni";
        </script>';
   }else {
     echo '<script> alert("error login"); </script>';

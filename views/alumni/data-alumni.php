@@ -69,6 +69,10 @@
         <a href="views/alumni/laporan-alumni.php?nis=<?=$a->Nis; ?>">
           <button type="button" class="btn btn-primary">Laporan</button>
         </a>
+      
+        <a href="?view=edit-password&nis=<?=$a->Nis; ?>">
+          <button type="button" class="btn btn-primary">Edit Akun</button>
+        </a>
         </div>
 
       </td>

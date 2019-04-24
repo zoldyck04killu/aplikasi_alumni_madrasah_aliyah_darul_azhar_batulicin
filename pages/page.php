@@ -25,6 +25,10 @@ elseif (@$_GET['view'] == 'register')
 // end AUTH REGISTER
 
 // ALUMNI
+elseif (@$_GET['view'] == 'edit-password')
+{
+    include 'views/alumni/edit-password.php';
+}
 elseif (@$_GET['view'] == 'alumni')
 {
     include 'views/alumni/data-alumni.php';
@@ -104,7 +108,7 @@ elseif (@$_GET['view'] == 'tambah-data-berita')
 {
     include 'views/berita/tambah-data-berita.php';
 }
-elseif (@$_GET['view'] == 'edit-Berita') 
+elseif (@$_GET['view'] == 'edit-Berita')
 {
     include 'views/berita/edit-berita.php';
 }

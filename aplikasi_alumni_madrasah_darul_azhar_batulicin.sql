@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2019 at 11:48 AM
+-- Generation Time: Apr 24, 2019 at 04:31 PM
 -- Server version: 10.3.13-MariaDB
 -- PHP Version: 7.3.3
 
@@ -156,15 +156,17 @@ CREATE TABLE `login_alumni` (
   `id` int(50) NOT NULL,
   `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hak_akses` int(5) NOT NULL
+  `hak_akses` int(5) NOT NULL,
+  `nis` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `login_alumni`
 --
 
-INSERT INTO `login_alumni` (`id`, `username`, `password`, `hak_akses`) VALUES
-(1, 'alumni', '$2y$10$QxKb4/AO6BvNVCFEYgL1keSx3WSmUf2N0O/.iajNlngbtC9uze2BC', 1);
+INSERT INTO `login_alumni` (`id`, `username`, `password`, `hak_akses`, `nis`) VALUES
+(1, 'alumni', '$2y$10$QxKb4/AO6BvNVCFEYgL1keSx3WSmUf2N0O/.iajNlngbtC9uze2BC', 1, ''),
+(2, 'karma', '$2y$10$1hLkQ30FGLKPTLj/Pn5sYOS6rP9C4PaBqxNAnbqV232SnDvaEaHCi', 1, '12334541');
 
 --
 -- Indexes for dumped tables
@@ -220,7 +222,7 @@ ALTER TABLE `komentar`
 -- AUTO_INCREMENT for table `login_alumni`
 --
 ALTER TABLE `login_alumni`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

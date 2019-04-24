@@ -34,10 +34,10 @@ class Admin
     session_destroy();
   }
 
-  function register($username, $password_hash, $hak_akses)
+  function register($username, $password_hash, $hak_akses,$nis)
   {
     $db = $this->mysqli->conn;
-    $register = $db->query("INSERT INTO login_alumni (username, password,hak_akses) VALUES ('$username', '$password_hash', '$hak_akses')") or die ($db->error);
+    $register = $db->query("INSERT INTO login_alumni (username, password,hak_akses,nis) VALUES ('$username', '$password_hash', '$hak_akses','$nis')") or die ($db->error);
     if ($register) {
         return true;
     } else {
@@ -60,6 +60,22 @@ class Admin
     }else{
       return false;
     }
+  }
+
+  public function editAkun($nis)
+  {
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM login_alumni WHERE nis = '$nis' ";
+    $query = $db->query($sql);
+    return $query;
+  }
+
+  public function proses_editAkun($username, $password_hash,$nis,$id)
+  {
+    $db = $this->mysqli->conn;
+    $sql = "UPDATE login_alumni SET username='$username', password='$password_hash', nis='$nis' where id='$id'  ";
+    $query = $db->query($sql);
+    return true;
   }
 
   public function showAlumni(){
