@@ -24,12 +24,10 @@
 
 <div class="login-form">
     <form action="" method="post">
-        <h2 class="text-center">Log in</h2>
+        <h2 class="text-center">Verifikasi Akun</h2>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required" name="username">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+            <input type="hidden" name="nis" value="<?=$_SESSION['nis'] ?>">
+            <input type="date" class="form-control" placeholder="Username" required="required" name="date">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" name="login">Masuk</button>
@@ -39,16 +37,17 @@
 <?php
 
 if (isset($_POST['login'])) {
-  $username = $obj->conn->real_escape_string($_POST['username']);
-  $password = $obj->conn->real_escape_string($_POST['password']);
+  $date = $obj->conn->real_escape_string($_POST['date']);
+  $nis = $obj->conn->real_escape_string($_POST['nis']);
+
   // login
-  $login = $objAdmin->login($username, $password);
+  $login = $objAdmin->verifikasi($nis, $date);
   if ($login) {
       echo '<script>
-      window.location="?view=verifikasi";
+      window.location="?view=home";
        </script>';
   }else {
-    echo '<script> alert("error login"); </script>';
+    echo '<script> alert("error login"); window.location="?view=logout" </script>';
   }
 }
 

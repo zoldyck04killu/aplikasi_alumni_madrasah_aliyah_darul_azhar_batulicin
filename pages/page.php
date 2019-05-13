@@ -119,3 +119,10 @@ else if (@$_GET['view'] == 'hapus-Berita') {
     $objAdmin->hapusBerita($id);
 }
 // end BERITA
+
+
+elseif (@$_GET['view'] == 'verifikasi') {
+    
+    include 'views/verifikasi.php';
+
+}

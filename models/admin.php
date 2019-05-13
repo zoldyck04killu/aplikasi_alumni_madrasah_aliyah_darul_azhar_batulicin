@@ -19,14 +19,35 @@ class Admin
   $cek = $userdata->num_rows;
   $cek_2 = $userdata->fetch_array();
           if (password_verify($password, $cek_2['password'])) {
-              $_SESSION['user'] = $cek_2['username']; //session
-              $_SESSION['hak_akses'] = $cek_2['hak_akses']; //session
+              // $_SESSION['user'] = $cek_2['username']; //session
+              // $_SESSION['hak_akses'] = $cek_2['hak_akses']; //session
+              $_SESSION['nis']  = $cek_2['nis'];
               return true;
           } else {
               return false; // password salah
           }
   }
 
+  public function verifikasi($nis, $date)
+  {
+    $db = $this->mysqli->conn;
+    $userdata = $db->query(" SELECT dt.Nis, dt.tgl_lahir, la.username, la.hak_akses
+                            FROM data_alumni dt
+                            LEFT JOIN login_alumni la ON la.nis = dt.Nis
+                            WHERE dt.Nis = '$nis' AND dt.tgl_lahir = '$date' ") or die ($db->error);
+  $cek = $userdata->num_rows;
+  $cek_2 = $userdata->fetch_array();
+    if ($cek == true) {
+      
+          $_SESSION['user'] = $cek_2['username']; //session
+          $_SESSION['hak_akses'] = $cek_2['hak_akses']; //session
+
+          return true;
+    }else{
+        return false;
+    }
+
+  }
   public function logout(){
     @$_SESSION['user'] == FALSE;
     @$_SESSION['hak_akses'] == FALSE;
@@ -310,6 +331,22 @@ public function hapusBerita($id)
   $sql = " DELETE FROM data_berita WHERE id_berita = '$id' ";
   $query = $db->query($sql);
   return true;
+}
+
+public function get_nis()
+{
+  $db    = $this->mysqli->conn;
+  $sql   = " SELECT Nis FROM data_alumni ";
+  $query = $db->query($sql);
+  return $query;
+}
+
+public function get_nama_by_nis($nis)
+{
+  $db    = $this->mysqli->conn;
+  $sql   = " SELECT * FROM data_alumni WHERE Nis = '$nis' ";
+  $query = $db->query($sql);
+  return $query;
 }
 
 } // end class

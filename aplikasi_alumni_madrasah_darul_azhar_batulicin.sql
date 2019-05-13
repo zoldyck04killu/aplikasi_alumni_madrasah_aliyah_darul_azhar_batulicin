@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2019 at 04:31 PM
--- Server version: 10.3.13-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: May 13, 2019 at 08:29 PM
+-- Server version: 10.3.14-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -166,7 +166,7 @@ CREATE TABLE `login_alumni` (
 
 INSERT INTO `login_alumni` (`id`, `username`, `password`, `hak_akses`, `nis`) VALUES
 (1, 'alumni', '$2y$10$QxKb4/AO6BvNVCFEYgL1keSx3WSmUf2N0O/.iajNlngbtC9uze2BC', 1, ''),
-(2, 'karma', '$2y$10$1hLkQ30FGLKPTLj/Pn5sYOS6rP9C4PaBqxNAnbqV232SnDvaEaHCi', 1, '12334541');
+(3, 'aldi', '$2y$10$Ie3IakdXAb03yIq9bJnZ8.16r9OF/4noQcAB2PidedJlovdWWTxhu', 1, '123');
 
 --
 -- Indexes for dumped tables
@@ -222,7 +222,7 @@ ALTER TABLE `komentar`
 -- AUTO_INCREMENT for table `login_alumni`
 --
 ALTER TABLE `login_alumni`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

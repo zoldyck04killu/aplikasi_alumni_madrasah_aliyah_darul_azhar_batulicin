@@ -32,7 +32,19 @@
             <input type="password" class="form-control" placeholder="Password" required="required" name="password">
         </div>
 				<div class="form-group">
-            <input type="text" class="form-control" placeholder="Nis" required="required" name="nis">
+            <select name="nis" id="nis" class="form-control">
+              <option>Pilih NIS</option>
+             <?php 
+             $data = $objAdmin->get_nis();
+             while ($a = $data->fetch_object()) { ?>
+                <option value="<?=$a->Nis ?>"><?=$a->Nis ?></option>
+             <?php } ?>
+            </select>
+        </div>
+        <div class="form-group" id="" style="">
+          <select class="form-control" id="nama_alumni" disabled>
+            
+          </select>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" name="register">Register</button>
@@ -60,3 +72,43 @@ if (isset($_POST['register'])) {
 }
 
 ?>
+
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+
+    $('#nis').on('change', function(){
+    
+      let nis = $('#nis :selected').val();
+
+      get_nama_alumni_by_nis(nis);
+
+    });
+
+    function get_nama_alumni_by_nis(nis)
+    {
+        $.ajax({
+
+          url: '<?=base_url()?>/models/ajax.php',
+          dataType: 'JSON',
+          type: 'POST',
+          data: { type: 'get_nama_by_nis', nis: nis },
+            success: function(res){
+
+             let option = '';
+             let i;
+
+              for (i = 0; i < res.length; i++) {
+                option += '<option>' + res[i] + '</option>';
+              }
+
+              $('#nama_alumni').html(option);
+
+            }
+
+        });
+    }
+
+  });
+
+</script>
