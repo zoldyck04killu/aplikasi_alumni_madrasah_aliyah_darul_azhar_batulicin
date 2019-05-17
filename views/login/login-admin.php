@@ -24,7 +24,7 @@
 
 <div class="login-form">
     <form action="" method="post">
-        <h2 class="text-center">Log in Alumni</h2>
+        <h2 class="text-center">Log in Admin</h2>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" required="required" name="username">
         </div>
@@ -42,13 +42,13 @@ if (isset($_POST['login'])) {
   $username = $obj->conn->real_escape_string($_POST['username']);
   $password = $obj->conn->real_escape_string($_POST['password']);
   // login
-  $login = $objAdmin->login($username, $password);
+  $login = $objAdmin->login_admin($username, $password);
   if ($login) {
       echo '<script>
-      window.location="?view=verifikasi";
+      window.location="?view=home";
        </script>';
   }else {
-    echo '<script> alert("error login alumni"); </script>';
+    echo '<script> alert("error login admin"); </script>';
   }
 }
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $id_perusahaan = @$_GET['id_perusahaan'];
 $data = $objAdmin->edit_perusahaan($id_perusahaan)->fetch_object();
@@ -60,7 +60,7 @@ if (isset($_POST['updatePerusahaan']))
   if ($updatePerusahaan) {
       echo "<script>
       swal(
-        'Save Perusahaan Success!',
+        'Edit Perusahaan Success!',
         'You clicked the button!',
         'success'
       )
@@ -68,7 +68,7 @@ if (isset($_POST['updatePerusahaan']))
   }else{
     echo "<script>
     swal({
-          title: 'Error Save Alumni!',
+          title: 'Error Edit Perusahaan!',
           text: 'Do you want to continue',
           type: 'error'
         })

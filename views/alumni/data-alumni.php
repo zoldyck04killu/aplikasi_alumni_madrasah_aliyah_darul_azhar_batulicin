@@ -29,8 +29,9 @@
         <th>Hp Ortu</th>
         <th>Foto</th>
 
-
-        <th>Opsi</th>
+        <?php if (@$_SESSION['hak_akses'] == 2): ?>
+          <th>Opsi</th>
+        <?php endif; ?>
       </tr>
     </thead>
     <tbody>
@@ -61,7 +62,7 @@
       <td>
         <img src="./assets/images/<?=$a->foto ?>"  width="70px">
       </td>
-
+      <?php if (@$_SESSION['hak_akses'] == 2): ?>
       <td>
         <div class="btn btn-group" id="" style="">
         <a href="?view=edit-alumni&nis=<?=$a->Nis; ?>" class="btn btn-sm btn-warning">Edit</a>
@@ -69,13 +70,15 @@
         <a href="views/alumni/laporan-alumni.php?nis=<?=$a->Nis; ?>">
           <button type="button" class="btn btn-primary">Laporan</button>
         </a>
-      
+
         <a href="?view=edit-password&nis=<?=$a->Nis; ?>">
           <button type="button" class="btn btn-primary">Edit Akun</button>
         </a>
         </div>
 
       </td>
+    <?php endif; ?>
+
     </tr>
       <?php
       $no++;
@@ -85,7 +88,8 @@
     </table>
 
 </div>
-
+<?php if (@$_SESSION['hak_akses'] == 2): ?>
 <a href="?view=tambah-data-alumni">
   <button type="button" class="btn btn-primary">Tambah</button>
 </a>
+<?php endif; ?>

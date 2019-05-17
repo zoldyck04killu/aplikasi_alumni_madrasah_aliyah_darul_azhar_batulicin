@@ -1,4 +1,4 @@
-<?php 
+<?php
 $id = @$_GET['nip'];
 $data = $objAdmin->editBerita($id)->fetch_object();
  ?>
@@ -114,7 +114,7 @@ if ($_FILES['gambar']['name'] != '') {
 	  if ($updateBerita) {
 	      echo "<script>
 	      swal(
-	        'Save Berita Success!',
+	        'Edit Berita Success!',
 	        'You clicked the button!',
 	        'success'
 	      )
@@ -122,7 +122,7 @@ if ($_FILES['gambar']['name'] != '') {
 	  }else{
 	    echo "<script>
 	    swal({
-	          title: 'Error Save Berita!',
+	          title: 'Error Edit Berita!',
 	          text: 'Do you want to continue',
 	          type: 'error'
 	        })

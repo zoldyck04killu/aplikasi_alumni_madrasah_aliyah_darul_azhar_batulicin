@@ -13,6 +13,21 @@ class Admin
     $this->mysqli = $mysqli;
   }
 
+  public function login_admin($username, $password){
+  $db = $this->mysqli->conn;
+  $userdata = $db->query("SELECT * FROM login_alumni WHERE username = '$username' ") or die ($db->error);
+  $cek = $userdata->num_rows;
+  $cek_2 = $userdata->fetch_array();
+          if (password_verify($password, $cek_2['password'])) {
+              $_SESSION['user'] = $cek_2['username']; //session
+              $_SESSION['hak_akses'] = $cek_2['hak_akses']; //session
+              // $_SESSION['nis']  = $cek_2['nis'];
+              return true;
+          } else {
+              return false; // password salah
+          }
+  }
+
   public function login($username, $password){
   $db = $this->mysqli->conn;
   $userdata = $db->query("SELECT * FROM login_alumni WHERE username = '$username' ") or die ($db->error);
@@ -31,16 +46,18 @@ class Admin
   public function verifikasi($nis, $date)
   {
     $db = $this->mysqli->conn;
-    $userdata = $db->query(" SELECT dt.Nis, dt.tgl_lahir, la.username, la.hak_akses
+    $userdata = $db->query(" SELECT dt.Nis, dt.tgl_lahir, la.username, la.hak_akses, la.id
                             FROM data_alumni dt
                             LEFT JOIN login_alumni la ON la.nis = dt.Nis
                             WHERE dt.Nis = '$nis' AND dt.tgl_lahir = '$date' ") or die ($db->error);
   $cek = $userdata->num_rows;
   $cek_2 = $userdata->fetch_array();
     if ($cek == true) {
-      
+
           $_SESSION['user'] = $cek_2['username']; //session
           $_SESSION['hak_akses'] = $cek_2['hak_akses']; //session
+          $_SESSION['id'] = $cek_2['id']; //session
+
 
           return true;
     }else{
@@ -60,6 +77,18 @@ class Admin
     $db = $this->mysqli->conn;
     $register = $db->query("INSERT INTO login_alumni (username, password,hak_akses,nis) VALUES ('$username', '$password_hash', '$hak_akses','$nis')") or die ($db->error);
     if ($register) {
+        return true;
+    } else {
+        return false; // password salah
+    }
+  }
+
+  function edit_password($id, $password_hash)
+  {
+    $db = $this->mysqli->conn;
+    $sql = "UPDATE login_alumni SET password='$password_hash' where id='$id'  ";
+    $edit_password = $db->query($sql);
+    if ($edit_password) {
         return true;
     } else {
         return false; // password salah
@@ -91,10 +120,10 @@ class Admin
     return $query;
   }
 
-  public function proses_editAkun($username, $password_hash,$nis,$id)
+  public function proses_editAkun($username, $password_hash,$id)
   {
     $db = $this->mysqli->conn;
-    $sql = "UPDATE login_alumni SET username='$username', password='$password_hash', nis='$nis' where id='$id'  ";
+    $sql = "UPDATE login_alumni SET username='$username', password='$password_hash' where id='$id'  ";
     $query = $db->query($sql);
     return true;
   }

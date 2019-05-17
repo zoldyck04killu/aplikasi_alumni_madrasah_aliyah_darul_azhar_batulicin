@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $nis  = @$_GET['nis'];
 $data =$objAdmin->editAlumni($nis)->fetch_object();
@@ -155,7 +155,7 @@ if (isset($_POST['updateAlumni']))
   if ($updateAlumni) {
       echo "<script>
       swal(
-        'Save Alumni Success!',
+        'Edit Alumni Success!',
         'You clicked the button!',
         'success'
       )
@@ -163,7 +163,7 @@ if (isset($_POST['updateAlumni']))
   }else{
     echo "<script>
     swal({
-          title: 'Error Save Alumni!',
+          title: 'Error Edit Alumni!',
           text: 'Do you want to continue',
           type: 'error'
         })

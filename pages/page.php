@@ -11,6 +11,10 @@ elseif (@$_GET['view'] == 'login')
 {
     include 'views/login/login.php';
 }
+elseif (@$_GET['view'] == 'login-admin')
+{
+    include 'views/login/login-admin.php';
+}
 elseif (@$_GET['view'] == 'logout')
 {
     $objAdmin->logout();
@@ -25,6 +29,10 @@ elseif (@$_GET['view'] == 'register')
 // end AUTH REGISTER
 
 // ALUMNI
+elseif (@$_GET['view'] == 'edit_password')
+{
+    include 'views/login/edit_password.php';
+}
 elseif (@$_GET['view'] == 'edit-password')
 {
     include 'views/alumni/edit-password.php';
@@ -122,7 +130,7 @@ else if (@$_GET['view'] == 'hapus-Berita') {
 
 
 elseif (@$_GET['view'] == 'verifikasi') {
-    
+
     include 'views/verifikasi.php';
 
 }

@@ -40,9 +40,6 @@ $data =$objAdmin->editAkun($nis)->fetch_object();
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password Baru" required="required" name="password">
         </div>
-				<div class="form-group">
-						<input type="text" class="form-control" placeholder="Nis" required="required" name="nis" value="<?= $data->nis ?>">
-				</div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" name="editAkun">Edit Akun</button>
         </div>
@@ -52,19 +49,18 @@ $data =$objAdmin->editAkun($nis)->fetch_object();
 
 if (isset($_POST['editAkun'])) {
 	$id = $obj->conn->real_escape_string($_POST['id']);
-	$nis = $obj->conn->real_escape_string($_POST['nis']);
   $username = $obj->conn->real_escape_string($_POST['username']);
   $password = $obj->conn->real_escape_string($_POST['password']);
   $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
   // login
-  $editAkun = $objAdmin->proses_editAkun($username, $password_hash,$nis,$id);
+  $editAkun = $objAdmin->proses_editAkun($username, $password_hash,$id);
   if ($editAkun) {
       echo '<script>
       window.location="?view=alumni";
        </script>';
   }else {
-    echo '<script> alert("error login"); </script>';
+    echo '<script> alert("error edit akun"); </script>';
   }
 }
 

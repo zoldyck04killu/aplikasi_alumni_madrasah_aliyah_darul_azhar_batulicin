@@ -106,6 +106,11 @@
                 <input type="text" id="materialContactFormName" class="form-control" name="hp_ortu">
             </div>
 
+            <div class="md-form mt-3">
+                <label for="materialContactFormName">Password</label>
+                <input type="password" id="materialContactFormName" class="form-control" name="password">
+            </div>
+
             <!-- Send button -->
             <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit" name="saveAlumni">Send</button>
 
@@ -145,6 +150,13 @@ if (isset($_POST['saveAlumni']))
 
 
   $saveAlumni = $objAdmin->saveAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto );
+  $password = $obj->conn->real_escape_string($_POST['password']);
+  $password_hash = password_hash($password, PASSWORD_DEFAULT);
+  $hak_akses = 1;
+
+  // login
+  $register = $objAdmin->register($nis, $password_hash, $hak_akses,$nis);
+
   if ($saveAlumni) {
       echo "<script>
       swal(

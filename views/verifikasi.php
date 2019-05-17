@@ -47,7 +47,7 @@ if (isset($_POST['login'])) {
       window.location="?view=home";
        </script>';
   }else {
-    echo '<script> alert("error login"); window.location="?view=logout" </script>';
+    echo '<script> alert("error verifikasi"); window.location="?view=logout" </script>';
   }
 }
 
