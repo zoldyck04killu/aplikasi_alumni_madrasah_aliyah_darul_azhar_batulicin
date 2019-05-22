@@ -6,7 +6,7 @@ session_start();
 
 $host = 'localhost';
 $user = 'root';
-$pass = '4';
+$pass = '';
 $db   = 'aplikasi_alumni_madrasah_darul_azhar_batulicin';
 
 // end databse settings
