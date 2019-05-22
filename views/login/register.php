@@ -26,26 +26,26 @@
     <form action="" method="post">
         <h2 class="text-center">Register</h2>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required" name="username">
+            <input type="text" class="form-control" placeholder="NIS" required="required" name="nis">
         </div>
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password" required="required" name="password">
         </div>
-				<div class="form-group">
+				<!-- <div class="form-group">
             <select name="nis" id="nis" class="form-control">
               <option>Pilih NIS</option>
-             <?php 
+             <?php
              $data = $objAdmin->get_nis();
              while ($a = $data->fetch_object()) { ?>
                 <option value="<?=$a->Nis ?>"><?=$a->Nis ?></option>
              <?php } ?>
             </select>
-        </div>
-        <div class="form-group" id="" style="">
+        </div> -->
+        <!-- <div class="form-group" id="" style="">
           <select class="form-control" id="nama_alumni" disabled>
-            
+
           </select>
-        </div>
+        </div> -->
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" name="register">Register</button>
         </div>
@@ -55,30 +55,30 @@
 
 if (isset($_POST['register'])) {
 	$nis = $obj->conn->real_escape_string($_POST['nis']);
-  $username = $obj->conn->real_escape_string($_POST['username']);
   $password = $obj->conn->real_escape_string($_POST['password']);
   $password_hash = password_hash($password, PASSWORD_DEFAULT);
   $hak_akses = 1;
 
   // login
-  $register = $objAdmin->register($username, $password_hash, $hak_akses,$nis);
+  $register = $objAdmin->register($password_hash, $hak_akses,$nis);
   if ($register) {
       echo '<script>
+			alert("success register");
       window.location="?view=login";
        </script>';
   }else {
-    echo '<script> alert("error login"); </script>';
+    echo '<script> alert("error register"); </script>';
   }
 }
 
 ?>
 
 <script type="text/javascript">
-  
+
   $(document).ready(function(){
 
     $('#nis').on('change', function(){
-    
+
       let nis = $('#nis :selected').val();
 
       get_nama_alumni_by_nis(nis);

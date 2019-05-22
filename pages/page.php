@@ -41,6 +41,10 @@ elseif (@$_GET['view'] == 'alumni')
 {
     include 'views/alumni/data-alumni.php';
 }
+elseif (@$_GET['view'] == 'data_saya')
+{
+    include 'views/alumni/data-saya.php';
+}
 elseif (@$_GET['view'] == 'tambah-data-alumni')
 {
     include 'views/alumni/tambah-data-alumni.php';

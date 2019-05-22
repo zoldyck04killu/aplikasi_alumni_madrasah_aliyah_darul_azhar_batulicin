@@ -33,6 +33,9 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" name="login">Masuk</button>
+						<a href="?view=register">
+							<button type="button" class="btn btn-success btn-block" name="login">Register</button>
+						</a>
         </div>
     </form>
 </div>

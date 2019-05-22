@@ -20,6 +20,7 @@
         <th>Alamat <br> Rumah</th>
         <th>Alamat <br> Sekarang</th>
         <th>No Hp</th>
+        <th>Pekerjaan</th>
         <th>Email</th>
         <th>Angkatan</th>
         <th>Lulusan</th>
@@ -52,6 +53,7 @@
       <td><?= $a->alamat_rumah; ?></td>
       <td><?= $a->alamat_sekarang; ?></td>
       <td><?= $a->no_hp_alumni; ?></td>
+      <td><?= $a->pekerjaan; ?></td>
       <td><?= $a->email; ?></td>
       <td><?= $a->angkatan_alumni; ?></td>
       <td><?= $a->lulusan_alumni; ?></td>

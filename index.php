@@ -57,11 +57,12 @@ $objAdmin = new Admin($obj);
         <?php if (@$_SESSION['hak_akses']): ?>
           <a href="?view=logout" class="list-group-item list-group-item-action bg-light">Logout</a>
           <!-- <a href="?view=register" class="list-group-item list-group-item-action bg-light">Daftar Akun Alumni</a> -->
-          <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
             <?php if (@$_SESSION['hak_akses'] == 1): ?>
+                <a href="?view=data_saya&nis=<?=$_SESSION['nis']; ?>" class="list-group-item list-group-item-action bg-light">Data Saya</a>
                 <a href="?view=edit_password" class="list-group-item list-group-item-action bg-light">Edit Password</a>
             <?php endif; ?>
               <?php if (@$_SESSION['hak_akses'] == 2): ?>
+                <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
                 <a href="?view=pekerjaan" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
                 <a href="?view=perusahaan" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
                 <a href="?view=data-berita" class="list-group-item list-group-item-action bg-light">Data Berita</a>

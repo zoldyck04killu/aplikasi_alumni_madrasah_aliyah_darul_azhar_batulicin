@@ -75,6 +75,11 @@ $data =$objAdmin->editAlumni($nis)->fetch_object();
                 <input type="text" id="materialContactFormName" class="form-control" name="hp" value="<?=$data->no_hp_alumni ?>">
             </div>
 
+            <div class="md-form mt-3">
+                <label for="materialContactFormName">Pekerjaan</label>
+                <input type="text" id="materialContactFormName" class="form-control" name="pekerjaan" value="<?=$data->pekerjaan ?>">
+            </div>
+
             <!-- E-mail -->
             <div class="md-form">
               <label for="materialContactFormEmail">E-mail</label>
@@ -134,6 +139,8 @@ if (isset($_POST['updateAlumni']))
   $alamat_rumah = $obj->conn->real_escape_string($_POST['alamat_rumah']);
   $alamat_sekarang = $obj->conn->real_escape_string($_POST['alamat_sekarang']);
   $hp = $obj->conn->real_escape_string($_POST['hp']);
+  $pekerjaan = $obj->conn->real_escape_string($_POST['pekerjaan']);
+
   $email = $obj->conn->real_escape_string($_POST['email']);
   $angakatan = $obj->conn->real_escape_string($_POST['angakatan']);
   $lulusan = $obj->conn->real_escape_string($_POST['lulusan']);
@@ -142,16 +149,8 @@ if (isset($_POST['updateAlumni']))
   $alamat_ortu = $obj->conn->real_escape_string($_POST['alamat_ortu']);
   $hp_ortu = $obj->conn->real_escape_string($_POST['hp_ortu']);
 
-  $name_array = $_FILES['foto']['name'];
-  $tmp_name   = $_FILES['foto']['tmp_name'];
-  $format     = "Img-".round(microtime(true)) . "";
-  $ext        = pathinfo($name_array, PATHINFO_EXTENSION);
-  if (move_uploaded_file($tmp_name, "./assets/images/".$foto = $format. rand(10, 100).".".$ext)) {
-        unlink("./assets/images/".$data->foto);
-  }
-
-
-  $updateAlumni = $objAdmin->updateAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto );
+if ($_FILES['foto']['name'] == null) {
+  $updateAlumni = $objAdmin->updateAlumniFotoNull($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$pekerjaan,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu );
   if ($updateAlumni) {
       echo "<script>
       swal(
@@ -169,5 +168,34 @@ if (isset($_POST['updateAlumni']))
         })
     </script>";
   }
+}else {
+  $name_array = $_FILES['foto']['name'];
+  $tmp_name   = $_FILES['foto']['tmp_name'];
+  $format     = "Img-".round(microtime(true)) . "";
+  $ext        = pathinfo($name_array, PATHINFO_EXTENSION);
+  if (move_uploaded_file($tmp_name, "./assets/images/".$foto = $format. rand(10, 100).".".$ext)) {
+        unlink("./assets/images/".$data->foto);
+  }
+
+
+  $updateAlumni = $objAdmin->updateAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$pekerjaan,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto );
+  if ($updateAlumni) {
+      echo "<script>
+      swal(
+        'Edit Alumni Success!',
+        'You clicked the button!',
+        'success'
+      )
+      </script>";
+  }else{
+    echo "<script>
+    swal({
+          title: 'Error Edit Alumni!',
+          text: 'Do you want to continue',
+          type: 'error'
+        })
+    </script>";
+  }
+}
 
 }

@@ -72,10 +72,10 @@ class Admin
     session_destroy();
   }
 
-  function register($username, $password_hash, $hak_akses,$nis)
+  function register($password_hash, $hak_akses,$nis)
   {
     $db = $this->mysqli->conn;
-    $register = $db->query("INSERT INTO login_alumni (username, password,hak_akses,nis) VALUES ('$username', '$password_hash', '$hak_akses','$nis')") or die ($db->error);
+    $register = $db->query("INSERT INTO login_alumni (username, password,hak_akses,nis) VALUES ('$nis', '$password_hash', '$hak_akses','$nis')") or die ($db->error);
     if ($register) {
         return true;
     } else {
@@ -96,13 +96,13 @@ class Admin
   }
 
 // ALUMNI
-  function saveAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto )
+  function saveAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$pekerjaan,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto )
   {
     $db = $this->mysqli->conn;
     $saveAlumni = $db->query("INSERT INTO data_alumni
-                              (Nis, nama_lengkap,tempat_lahir, tgl_lahir, jenis_kelamin, agama, jurusan, alamat_rumah,alamat_sekarang,no_hp_alumni,email,angkatan_alumni,lulusan_alumni,nama_ayah,nama_ibu,alamat_ortu,no_hp_ortu,foto )
+                              (Nis, nama_lengkap,tempat_lahir, tgl_lahir, jenis_kelamin, agama, jurusan, alamat_rumah,alamat_sekarang,no_hp_alumni,pekerjaan,email,angkatan_alumni,lulusan_alumni,nama_ayah,nama_ibu,alamat_ortu,no_hp_ortu,foto )
                               VALUES
-                              ('$nis', '$nama', '$tempat_lahir', '$tgl_lahir', '$jekel', '$agama','$jurusan','$alamat_rumah','$alamat_sekarang','$hp','$email','$angakatan','$lulusan','$nama_ayah','$nama_ibu','$alamat_ortu','$hp_ortu','$foto' )
+                              ('$nis', '$nama', '$tempat_lahir', '$tgl_lahir', '$jekel', '$agama','$jurusan','$alamat_rumah','$alamat_sekarang','$hp','$pekerjaan','$email','$angakatan','$lulusan','$nama_ayah','$nama_ibu','$alamat_ortu','$hp_ortu','$foto' )
                               ") or die ($db->error);
     if ($saveAlumni)
     {
@@ -143,10 +143,18 @@ class Admin
     return $query;
   }
 
-  public function updateAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto)
+  public function updateAlumni($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$pekerjaan,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu,$foto)
   {
     $db = $this->mysqli->conn;
-    $sql = "UPDATE data_alumni SET nama_lengkap = '$nama', tempat_lahir = '$tempat_lahir', tgl_lahir = '$tgl_lahir', jenis_kelamin = '$jekel', agama = '$agama', jurusan = '$jurusan', alamat_rumah = '$alamat_rumah', alamat_sekarang = '$alamat_sekarang', no_hp_alumni = '$hp', email = '$email', angkatan_alumni = '$angakatan', lulusan_alumni = '$lulusan', nama_ayah = '$nama_ayah', nama_ibu = '$nama_ibu', alamat_ortu = '$alamat_ortu', no_hp_ortu = '$hp_ortu', foto = '$foto'  WHERE Nis = '$nis'   ";
+    $sql = "UPDATE data_alumni SET nama_lengkap = '$nama', tempat_lahir = '$tempat_lahir', tgl_lahir = '$tgl_lahir', jenis_kelamin = '$jekel', agama = '$agama', jurusan = '$jurusan', alamat_rumah = '$alamat_rumah', alamat_sekarang = '$alamat_sekarang', no_hp_alumni = '$hp', pekerjaan = '$pekerjaan', email = '$email', angkatan_alumni = '$angakatan', lulusan_alumni = '$lulusan', nama_ayah = '$nama_ayah', nama_ibu = '$nama_ibu', alamat_ortu = '$alamat_ortu', no_hp_ortu = '$hp_ortu', foto = '$foto'  WHERE Nis = '$nis'   ";
+    $query = $db->query($sql);
+    return true;
+  }
+
+  public function updateAlumniFotoNull($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$pekerjaan,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu)
+  {
+    $db = $this->mysqli->conn;
+    $sql = "UPDATE data_alumni SET nama_lengkap = '$nama', tempat_lahir = '$tempat_lahir', tgl_lahir = '$tgl_lahir', jenis_kelamin = '$jekel', agama = '$agama', jurusan = '$jurusan', alamat_rumah = '$alamat_rumah', alamat_sekarang = '$alamat_sekarang', no_hp_alumni = '$hp', pekerjaan = '$pekerjaan', email = '$email', angkatan_alumni = '$angakatan', lulusan_alumni = '$lulusan', nama_ayah = '$nama_ayah', nama_ibu = '$nama_ibu', alamat_ortu = '$alamat_ortu', no_hp_ortu = '$hp_ortu'  WHERE Nis = '$nis'   ";
     $query = $db->query($sql);
     return true;
   }

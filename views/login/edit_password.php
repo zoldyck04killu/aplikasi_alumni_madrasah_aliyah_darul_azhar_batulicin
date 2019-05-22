@@ -26,7 +26,7 @@
     <form action="" method="post">
         <h2 class="text-center">Edit Password</h2>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Id" required="required" name="id" value="<?= $_SESSION['id']; ?>">
+            <input type="hidden" class="form-control" placeholder="Id" required="required" name="id" value="<?= $_SESSION['id']; ?>">
         </div>
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password" required="required" name="password">
