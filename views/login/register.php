@@ -29,23 +29,10 @@
             <input type="text" class="form-control" placeholder="NIS" required="required" name="nis">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+            <!-- <input type="password" class="form-control" placeholder="Password" required="required" name="password"> -->
+						<input type="date" id="materialContactFormName" class="form-control" name="tgl_lahir">
         </div>
-				<!-- <div class="form-group">
-            <select name="nis" id="nis" class="form-control">
-              <option>Pilih NIS</option>
-             <?php
-             $data = $objAdmin->get_nis();
-             while ($a = $data->fetch_object()) { ?>
-                <option value="<?=$a->Nis ?>"><?=$a->Nis ?></option>
-             <?php } ?>
-            </select>
-        </div> -->
-        <!-- <div class="form-group" id="" style="">
-          <select class="form-control" id="nama_alumni" disabled>
 
-          </select>
-        </div> -->
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block" name="register">Register</button>
         </div>
@@ -55,19 +42,22 @@
 
 if (isset($_POST['register'])) {
 	$nis = $obj->conn->real_escape_string($_POST['nis']);
-  $password = $obj->conn->real_escape_string($_POST['password']);
-  $password_hash = password_hash($password, PASSWORD_DEFAULT);
+	$tgl_lahir = $obj->conn->real_escape_string($_POST['tgl_lahir']);
+	// 
+  // $password = $obj->conn->real_escape_string($_POST['password']);
+  // $password_hash = password_hash($password, PASSWORD_DEFAULT);
   $hak_akses = 1;
 
   // login
-  $register = $objAdmin->register($password_hash, $hak_akses,$nis);
+  // $register = $objAdmin->register($password_hash, $hak_akses,$nis);
+	$register = $objAdmin->verifikasi_dataalumni($nis, $tgl_lahir);
   if ($register) {
       echo '<script>
-			alert("success register");
+			alert("Data Sudah Ada");
       window.location="?view=login";
        </script>';
   }else {
-    echo '<script> alert("error register"); </script>';
+    echo '<script> alert("Data Tidak ada, Harap Lapor Admin"); </script>';
   }
 }
 

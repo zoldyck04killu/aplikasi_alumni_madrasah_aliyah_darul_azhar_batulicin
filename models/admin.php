@@ -83,6 +83,22 @@ class Admin
     }
   }
 
+  function verifikasi_dataalumni($nis, $tgl_lahir)
+  {
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM data_alumni WHERE Nis = '$nis' && tgl_lahir = '$tgl_lahir' ";
+    $query = $db->query($sql);
+    $cek = $query->num_rows;
+    // var_dump($cek);
+    // die();
+    if ($cek > 0) {
+        return true;
+    } else {
+        return false; // password salah
+    }
+  }
+
+
   function edit_password($id, $password_hash)
   {
     $db = $this->mysqli->conn;
