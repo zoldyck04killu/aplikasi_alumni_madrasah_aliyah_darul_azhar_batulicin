@@ -151,6 +151,14 @@ class Admin
     return $query;
   }
 
+
+   public function showAlumni_($thn){
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM data_alumni WHERE angkatan_alumni = '$thn' ";
+    $query = $db->query($sql);
+    return $query;
+  }
+
   public function editAlumni($nis)
   {
     $db = $this->mysqli->conn;
@@ -309,7 +317,7 @@ class Admin
 
   public function showBerita(){
     $db = $this->mysqli->conn;
-    $sql = "SELECT * FROM data_berita";
+    $sql = "SELECT * FROM data_berita ORDER BY tgl_berita DESC";
     $query = $db->query($sql);
     return $query;
   }
@@ -398,6 +406,14 @@ public function get_nama_by_nis($nis)
 {
   $db    = $this->mysqli->conn;
   $sql   = " SELECT * FROM data_alumni WHERE Nis = '$nis' ";
+  $query = $db->query($sql);
+  return $query;
+}
+
+public function get_alumni()
+{
+  $db    = $this->mysqli->conn;
+  $sql   = " SELECT * FROM data_alumni ";
   $query = $db->query($sql);
   return $query;
 }

@@ -56,8 +56,9 @@ $data =$objAdmin->editAlumni($nis)->fetch_object();
             </div>
 
             <span>Jurusan</span>
-            <select class="form-control" name="jurusan">
-                <option value="<?=$data->jurusan ?>"><?=$data->jurusan ?></option>
+           <select class="form-control" name="jurusan">
+                <option value="IPA" <?php echo $data->jurusan == 'IPA' ? 'selected' : ''; ?>>IPA</option>
+                <option value="IPS" <?php echo $data->jurusan == 'IPS' ? 'selected' : ''; ?>>IPS</option>
             </select>
 
             <div class="md-form mt-3">

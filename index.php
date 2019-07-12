@@ -52,8 +52,17 @@ $objAdmin = new Admin($obj);
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <a href="?view=home"> <div class="sidebar-heading">Menu</div> </a>
+      <a href="?view=home"> <div class="sidebar-heading">Home</div> </a>
       <div class="list-group list-group-flush">
+        <!--  <a href="?view=logout" class="list-group-item list-group-item-action bg-light">Lihat Data Alumni</a> -->
+        <select id="pilihAlumni" onchange="get_alumni(this.value)" class="form-control">
+          <option value="0">Data Angkatan Alumni</option>
+          <?php 
+          $a = $objAdmin->get_alumni();
+          while ($b = $a->fetch_object()) { ?>
+            <option value="<?=$b->angkatan_alumni ?>"> <?=$b->angkatan_alumni ?> </option>
+          <?php } ?>
+        </select>
         <?php if (@$_SESSION['hak_akses']): ?>
           <a href="?view=logout" class="list-group-item list-group-item-action bg-light">Logout</a>
           <!-- <a href="?view=register" class="list-group-item list-group-item-action bg-light">Daftar Akun Alumni</a> -->
@@ -61,32 +70,32 @@ $objAdmin = new Admin($obj);
                 <a href="?view=data_saya&nis=<?=$_SESSION['nis']; ?>" class="list-group-item list-group-item-action bg-light">Data Saya</a>
                 <a href="?view=edit_password" class="list-group-item list-group-item-action bg-light">Edit Password</a>
             <?php endif; ?>
-              <?php if (@$_SESSION['hak_akses'] == 2): ?>
+              <?php if (@$_SESSION['hak_akses'] == 1): ?>
                 <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
                 <a href="?view=pekerjaan" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
                 <a href="?view=perusahaan" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
-                <a href="?view=data-berita" class="list-group-item list-group-item-action bg-light">Data Berita</a>
-            <?php endif; ?>
-          <?php else: ?>
+              <?php endif; ?>
+            <a href="?view=data-berita" class="list-group-item list-group-item-action bg-light">Data Berita</a>
+              <?php else: ?>
             <a href="?view=login" class="list-group-item list-group-item-action bg-light">Login</a>
             <a href="?view=login-admin" class="list-group-item list-group-item-action bg-light">Login Admin</a>
             <a href="?view=data-berita-user" class="list-group-item list-group-item-action bg-light">Berita</a>
-        <?php endif; ?>
+          <?php endif; ?>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
+        <img id="s" src="<?=base_url('assets/images/header/sekolah2.png') ?>" width="100%" alt="" style="position: relative; top: -10px; height: 30%;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"> 
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-
-        <button class="btn btn-info" id="menu-toggle">
+        <button class="btn btn-info btn-lg" id="menu-toggle">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <ul class="navbar-nav ml-auto mt-2 mt-lg-1">
-                <h5 class="text-center"> Aplikasi Alumni Madrasah Aliyah Darul Azhar Batulicin </h5>
+                <h5 class="text-center">  <marquee>Selamat Datang di madrasah aliyah darul azhar batulicin</marquee> </h5>
         </ul>
 
       </nav>
@@ -103,6 +112,18 @@ $objAdmin = new Admin($obj);
 
   <!-- Menu Toggle Script -->
   <script>
+
+    function get_alumni(val)
+    {
+      var base_url = '<?=base_url(); ?>';
+      if (val != 0) {
+        window.open(base_url + 'data-alumni-group.php/?c=' +  val + '', 
+          '_blank',
+          'toolbar=no',);
+        $('#pilihAlumni').val(0);
+      }
+    }
+
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
