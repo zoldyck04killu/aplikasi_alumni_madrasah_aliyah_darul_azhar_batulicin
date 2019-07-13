@@ -14,7 +14,7 @@ define('K_PATH_IMAGES', '../../assets/image/');
 $pdf = new TCPDF('L', PDF_UNIT, PDF_PAGE_FORMAT, True, 'UTF-8', false);
 
 // header & footer data
-$pdf->SetHeaderData('posyandu.jpg', 20, "MADRASAH ALIYAH DARUL AZHAR BATULICIN",
+$pdf->SetHeaderData('darul azhar.jpg', 20, "MADRASAH ALIYAH DARUL AZHAR BATULICIN",
             "", array(48,89,112), array(48,89,112));
 
 $pdf->SetFooterData( array(0, 0, 0), array(0, 0, 0));

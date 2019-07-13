@@ -5,6 +5,12 @@
     <center><h1>DATA ALUMNI</h1></center>
     <hr>
 </div>
+
+<form class="" action="views/alumni/laporan-angkatan-alumni.php" method="GET">
+    <input type="text" name="thn" placeholder="Tahun Alumni">
+    <button type="submit" class="btn btn-primary">Laporan</button>
+</form>
+
 <div class="daftar-table table-responsive">
     <table class="table table-striped text-center" id="table">
       <thead>

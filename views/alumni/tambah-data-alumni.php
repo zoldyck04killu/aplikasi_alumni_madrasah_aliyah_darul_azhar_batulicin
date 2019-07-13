@@ -48,12 +48,17 @@
                 <input type="text" id="materialContactFormName" class="form-control" name="agama">
             </div>
 
-            <span>Jurusan</span>
-            <select class="form-control" name="jurusan">
+            <div class="md-form mt-3">
+                <label for="materialContactFormName">Jurusan</label>
+                <input type="text" id="materialContactFormName" class="form-control" name="jurusan">
+            </div>
+
+            <!-- <span>Jurusan</span> -->
+            <!-- <select class="form-control" name="jurusan">
                 <option value="" disabled>Choose option</option>
                 <option value="IPA" selected>IPA</option>
                 <option value="IPS">IPS</option>
-            </select>
+            </select> -->
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Alamat Rumah</label>
@@ -162,7 +167,7 @@ if (isset($_POST['saveAlumni']))
   $hak_akses = 1;
 
   // login
-  $register = $objAdmin->register($nis, $password_hash, $hak_akses,$nis);
+  $register = $objAdmin->register($password_hash, $hak_akses,$nis);
 
   if ($saveAlumni) {
       echo "<script>

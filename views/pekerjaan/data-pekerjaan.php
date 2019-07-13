@@ -31,11 +31,14 @@
       <td><?= $a->nis; ?></td>
       <td><?= $a->nama_pekerjaan; ?></td>
       <td><?= $a->jabatan; ?></td>
+      <?php if (@$_SESSION['hak_akses'] == 2): ?>
       <td>
         <a href="?view=edit-pekerjaan&id_pekerjaan=<?=$a->id_pekerjaan; ?>" class="btn btn-sm btn-warning">Edit</a>
         <a href="?view=hapus-pekerjaan&id_pekerjaan=<?=$a->id_pekerjaan; ?>" class="btn btn-sm btn-danger">Hapus</a>
 
       </td>
+    <?php endif; ?>
+
     </tr>
       <?php
       $no++;
@@ -45,6 +48,7 @@
     </table>
 
 </div>
+<?php if (@$_SESSION['hak_akses'] == 2): ?>
 
 <a href="?view=tambah-data-pekerjaan">
   <button type="button" class="btn btn-primary">Tambah</button>
@@ -52,3 +56,4 @@
 <a href="views/pekerjaan/laporan-pekerjaan.php">
   <button type="button" class="btn btn-primary">Laporan</button>
 </a>
+<?php endif; ?>

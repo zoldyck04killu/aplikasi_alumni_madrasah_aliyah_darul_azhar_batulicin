@@ -151,6 +151,13 @@ class Admin
     return $query;
   }
 
+  public function showAlumniAngkatan($thn){
+    $db = $this->mysqli->conn;
+    $sql = "SELECT * FROM data_alumni WHERE angkatan_alumni='$thn' ";
+    $query = $db->query($sql);
+    return $query;
+  }
+
   public function editAlumni($nis)
   {
     $db = $this->mysqli->conn;

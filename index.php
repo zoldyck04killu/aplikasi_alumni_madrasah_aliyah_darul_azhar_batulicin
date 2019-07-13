@@ -61,10 +61,10 @@ $objAdmin = new Admin($obj);
                 <a href="?view=data_saya&nis=<?=$_SESSION['nis']; ?>" class="list-group-item list-group-item-action bg-light">Data Saya</a>
                 <a href="?view=edit_password" class="list-group-item list-group-item-action bg-light">Edit Password</a>
             <?php endif; ?>
+            <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
+            <a href="?view=pekerjaan" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
+            <a href="?view=perusahaan" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
               <?php if (@$_SESSION['hak_akses'] == 2): ?>
-                <a href="?view=alumni" class="list-group-item list-group-item-action bg-light">Alumni</a>
-                <a href="?view=pekerjaan" class="list-group-item list-group-item-action bg-light">Pekerjaan</a>
-                <a href="?view=perusahaan" class="list-group-item list-group-item-action bg-light">Perusahaan</a>
                 <a href="?view=data-berita" class="list-group-item list-group-item-action bg-light">Data Berita</a>
             <?php endif; ?>
           <?php else: ?>
@@ -86,7 +86,8 @@ $objAdmin = new Admin($obj);
         </button>
 
         <ul class="navbar-nav ml-auto mt-2 mt-lg-1">
-                <h5 class="text-center"> Aplikasi Alumni Madrasah Aliyah Darul Azhar Batulicin </h5>
+          <img src="assets/image/darul azhar.jpg" alt="" height="100">
+          <h5 class="text-center"> Aplikasi Alumni Madrasah Aliyah Darul Azhar Batulicin </h5>
         </ul>
 
       </nav>

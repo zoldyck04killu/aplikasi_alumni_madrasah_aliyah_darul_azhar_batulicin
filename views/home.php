@@ -1,3 +1,6 @@
+<center>
+<h2>BERITA</h2>
+</center>
 <?php
 $data = $objAdmin->showBerita();
 $no = 1;

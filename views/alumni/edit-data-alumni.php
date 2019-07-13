@@ -47,8 +47,10 @@ $data =$objAdmin->editAlumni($nis)->fetch_object();
 
             <span>Jenis Kelamin</span>
             <select class="form-control" name="jekel">
-                <option value="<?=$data->jenis_kelamin ?>"><?=$data->jenis_kelamin ?></option>
+                <option value="Laki-laki">Laki-Laki</option>
+                <option value="Perempuan">Perempuan</option>
             </select>
+
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Agama</label>
@@ -56,9 +58,8 @@ $data =$objAdmin->editAlumni($nis)->fetch_object();
             </div>
 
             <span>Jurusan</span>
-            <select class="form-control" name="jurusan">
-                <option value="<?=$data->jurusan ?>"><?=$data->jurusan ?></option>
-            </select>
+            <input type="text" id="materialContactFormName" class="form-control" name="jurusan" value="<?=$data->jurusan ?>">
+
 
             <div class="md-form mt-3">
                 <label for="materialContactFormName">Alamat Rumah</label>
@@ -148,7 +149,8 @@ if (isset($_POST['updateAlumni']))
   $nama_ibu = $obj->conn->real_escape_string($_POST['nama_ibu']);
   $alamat_ortu = $obj->conn->real_escape_string($_POST['alamat_ortu']);
   $hp_ortu = $obj->conn->real_escape_string($_POST['hp_ortu']);
-
+  // var_dump($jurusan);
+  // die();
 if ($_FILES['foto']['name'] == null) {
   $updateAlumni = $objAdmin->updateAlumniFotoNull($nis, $nama, $tempat_lahir, $tgl_lahir, $jekel, $agama,$jurusan,$alamat_rumah,$alamat_sekarang,$hp,$pekerjaan,$email,$angakatan,$lulusan,$nama_ayah,$nama_ibu,$alamat_ortu,$hp_ortu );
   if ($updateAlumni) {
@@ -158,6 +160,7 @@ if ($_FILES['foto']['name'] == null) {
         'You clicked the button!',
         'success'
       )
+      
       </script>";
   }else{
     echo "<script>
