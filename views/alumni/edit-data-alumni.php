@@ -160,7 +160,7 @@ if ($_FILES['foto']['name'] == null) {
         'You clicked the button!',
         'success'
       )
-      
+
       </script>";
   }else{
     echo "<script>

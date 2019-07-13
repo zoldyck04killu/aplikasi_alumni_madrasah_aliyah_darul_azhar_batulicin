@@ -138,3 +138,8 @@ elseif (@$_GET['view'] == 'verifikasi') {
     include 'views/verifikasi.php';
 
 }
+
+elseif (@$_GET['view'] == 'alumni_c') {
+    
+    include 'views/alumni/data-alumni-group.php';
+}

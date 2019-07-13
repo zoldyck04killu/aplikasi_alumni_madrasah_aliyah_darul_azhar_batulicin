@@ -52,8 +52,9 @@ $objAdmin = new Admin($obj);
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <a href="?view=home"> <div class="sidebar-heading">Menu</div> </a>
+      <a href="?view=home"> <div class="sidebar-heading">Home</div> </a>
       <div class="list-group list-group-flush">
+        <!--  <a href="?view=logout" class="list-group-item list-group-item-action bg-light">Lihat Data Alumni</a> -->
         <?php if (@$_SESSION['hak_akses']): ?>
           <a href="?view=logout" class="list-group-item list-group-item-action bg-light">Logout</a>
           <!-- <a href="?view=register" class="list-group-item list-group-item-action bg-light">Daftar Akun Alumni</a> -->
@@ -71,17 +72,17 @@ $objAdmin = new Admin($obj);
             <a href="?view=login" class="list-group-item list-group-item-action bg-light">Login</a>
             <a href="?view=login-admin" class="list-group-item list-group-item-action bg-light">Login Admin</a>
             <a href="?view=data-berita-user" class="list-group-item list-group-item-action bg-light">Berita</a>
-        <?php endif; ?>
+          <?php endif; ?>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
+        <!-- <img id="s" src="assets/image/darul azhar.jpg" width="100%" alt="" style="position: relative; top: -10px; height: 30%;">
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
 
-        <button class="btn btn-info" id="menu-toggle">
+        <button class="btn btn-info btn-lg" id="menu-toggle">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -90,7 +91,7 @@ $objAdmin = new Admin($obj);
           <h5 class="text-center"> Aplikasi Alumni Madrasah Aliyah Darul Azhar Batulicin </h5>
         </ul>
 
-      </nav>
+      </nav> -->
 
       <div class="container-fluid">
 
@@ -104,6 +105,18 @@ $objAdmin = new Admin($obj);
 
   <!-- Menu Toggle Script -->
   <script>
+
+    function get_alumni(val)
+    {
+      var base_url = '<?=base_url(); ?>';
+      if (val != 0) {
+        window.open(base_url + 'data-alumni-group.php/?c=' +  val + '',
+          '_blank',
+          'toolbar=no',);
+        $('#pilihAlumni').val(0);
+      }
+    }
+
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
